@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" ng-app="todoApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task App</title>
+
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- App Styles -->
+    <link rel="stylesheet" href="styles\style.css">
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-sanitize.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="//cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js"></script>
+
+    <!-- Code Behind -->
+    <script src="app\todoApp.module.js"></script>
+    <script src="app\ng-csv.js"></script>
+    <script src="app\registerClient.controller.js"></script>
+    <script src="app\todoItem.service.js"></script>
+    <script src="app\todo.controller.js"></script>
+    <script src="app\editClient.controller.js"></script>
+    <script src="app\storageService.js"></script>
+    <script src="app\components\customList.directive.js"></script>
+    <script src="app\components\sidenav.directive.js"></script>
+    <script type="text/javascript">
+    angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
+    </script>    
+</head>
+
+<body  ng-controller="TodoController as ctrl" class="no-scroll">
+    <div  class="no-scroll">
+        <div layout="column" class="no-scroll">
+            <md-toolbar class="desktop">
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" aria-label="Side Panel" ng-click="ctrl.openSideNavPanel()">
+                        <md-tooltip>Side Panel</md-tooltip>
+                        <md-icon class="md-default-theme" class="material-icons">&#xE5D2;</md-icon>
+                    </md-button>
+                    <h2>
+                    <span>Banking Service</span>
+                    </h2>
+                    <md-input-container md-no-float class="md-accent" flex="60" style="margin-bottom:0px;margin-left:25px">
+                        <md-icon style="color:white" class="material-icons">&#xE8B6;</md-icon>
+                        <input type="search" ng-model="ctrl.q" placeholder="Search here" style="color:white;padding-left:25px;margin-left:5px;padding-bottom:0px">
+                    </md-input-container>
+                    <span flex></span>
+                    <md-button ng-disabled="ctrl.selected.length==0" ng-click="ctrl.deleteListItem()" class="md-icon-button" aria-label="Delete">
+                        <md-tooltip>Delete</md-tooltip>
+                        <md-icon> delete </md-icon>
+                    </md-button>
+            </div>
+            </md-toolbar>
+            <md-toolbar class="mobile">
+                <div class="md-toolbar-tools" data-ng-show="ctrl.showMobileMainHeader">
+                     <md-button class="md-icon-button" aria-label="Side Panel" ng-click="ctrl.openSideNavPanel()">
+                        <md-tooltip>Side Panel</md-tooltip>
+                        <md-icon class="md-default-theme" class="material-icons">&#xE5D2;</md-icon>
+                    </md-button>
+                    <h2>
+                    <span>Banking Service</span>
+                    </h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" aria-label="Search" data-ng-click="ctrl.showMobileMainHeader = false">
+                    <md-tooltip>Search</md-tooltip>
+                    <md-icon class="material-icons">&#xE8B6;</md-icon>
+                    </md-button>
+                    <md-button ng-disabled="ctrl.selected.length==0" ng-click="ctrl.deleteListItem()" class="md-icon-button" aria-label="Delete">
+                        <md-tooltip>Delete</md-tooltip>
+                        <md-icon> delete </md-icon>
+                    </md-button>
+                    
+                </div>
+                <div class="md-toolbar-tools" data-ng-hide="ctrl.showMobileMainHeader">
+                    <md-button class="md-icon-button" aria-label="Back" data-ng-click="ctrl.showMobileMainHeader = true">
+                    <md-tooltip>Back</md-tooltip>
+                    <md-icon class="material-icons">&#xE5C4;</md-icon>
+                    </md-button>
+                    <md-input-container md-no-float class="md-accent" style="margin-bottom:0px;">
+                    <input type="search" ng-model="ctrl.q" placeholder="Search here" style="color:white;">
+                    </md-input-container>
+                    <span flex></span>
+                    <md-button class="md-icon-button" aria-label="Search">
+                    <md-tooltip>Search</md-tooltip>
+                    <md-icon class="material-icons">&#xE163;</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+           <sidenav items="ctrl.items"></sidenav>
+            <section layout="row" flex>
+                <div ng-view flex layout="column"></div>
+            </section>
+            <md-button class="md-fab md-primary add-button" aria-label="Add Todo" ng-click="ctrl.showAdd()">
+                <md-icon>add</md-icon>
+            </md-button>
+        </div>
+    </div>
+</body>
+
+</html>
