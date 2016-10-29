@@ -1,0 +1,57 @@
+<md-content layout-padding>
+    <form name="clientForm">
+      <div layout="row">
+        <md-input-container flex="50">
+          <label>Name</label>
+          <input required name="name" ng-model="editClientCtrl.master.name">
+          <div ng-messages="clientForm.name.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container flex="50">
+          <label>Client Type</label>
+          <md-select name="type" ng-model="editClientCtrl.master.type" required>
+            <md-option value="private">Private</md-option>
+            <md-option value="company">Company</md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+
+      
+    <md-input-container flex="50">
+        <label>Tax Code</label>
+        <input required name="taxCode" ng-model="editClientCtrl.master.taxCode" md-max-length="15"  md-max-length="15" >
+        <div ng-messages="clientForm.taxCode.$error">
+            <div ng-message-exp="['max-lenght']">
+              Your tax code must have a length of 15 characters
+            </div>
+            <div ng-message-exp="['min-lenght']">
+              Your tax code must have a length of 15 characters
+            </div>
+            <div ng-message="required">This is required.</div>
+        </div>
+    </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Email</label>
+        <input required type="email" name="email" ng-model="editClientCtrl.master.email" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+
+        <div ng-messages="clientForm.email.$error" role="alert">
+          <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+            Your email must be between 10 and 100 characters long and look like an e-mail address.
+          </div>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Balance (€)</label>
+        <input required type="number" step="any" name="balance" ng-model="editClientCtrl.master.balance"  />
+      </md-input-container>
+    </form>
+  </md-content>
+  <div class="md-actions" layout="row"> 
+    <span flex></span> 
+    <md-button ng-click="editClientCtrl.cancel()"> Cancel </md-button> 
+    <md-button ng-disabled="clientForm.$invalid" ng-click="editClientCtrl.showConfirm($event)" class="md-primary"> Save </md-button> 
+  </div>

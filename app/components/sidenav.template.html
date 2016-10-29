@@ -1,0 +1,50 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z2"
+                    md-component-id="left">
+                <md-toolbar layout="row">
+                <div class="md-toolbar-tools">
+                    <h2>
+                    <span>Banking Service</span>
+                    </h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="sidenavCtrl.closeSideNavPanel()">
+                    <md-tooltip>Close Side Panel</md-tooltip>
+                    <md-icon class="md-default-theme" class="material-icons">&#xE5CD;</md-icon>
+                    </md-button>
+                </div>
+                </md-toolbar> 
+                <md-content layout-padding="">
+                    <md-toolbar >
+                        <div layout="column" class="md-toolbar-tools-bottom inset">
+                        <md-card-avatar>
+                            <img class="md-user-avatar" src="img/IMG.png"/>
+                        </md-card-avatar>
+                        <div>GIUSEPPE VACCARO</div>
+                        <div>peppevaccaro10@gmail.com</div>
+                        </div>
+                         <md-divider></md-divider>
+                         <div layout="column" class="md-toolbar-tools-bottom inset">
+                            <div>UNIVERSITA' DEGLI STUDI DI CATANIA</div>
+                            <div>Laurea Magistrale in Ing. Informatica</div>
+                         </div>
+                    </md-toolbar>
+                    <md-list>
+                        <md-subheader class="md-no-sticky">View</md-subheader>
+                        <md-list-item ng-click="sidenavctrl.redirect()">
+                            <md-icon class="md-default-theme" class="material-icons">home</md-icon>
+                            <p>Home</p>
+                        </md-list-item>
+                        <md-list-item href="viewList">
+                            <md-icon class="md-default-theme" class="material-icons">view_list</md-icon>
+                            <p>View Client List</p>
+                        </md-list-item>
+                        <md-divider></md-divider>
+                        <md-subheader class="md-no-sticky">Export</md-subheader>
+                        <md-list-item flex>
+                            <md-button id="export" ng-csv="sidenavCtrl.items" filename="lista_clienti.csv" field-separator="," flex>
+                            <md-icon class="md-default-theme" class="material-icons">file_download</md-icon>
+                            File CSV
+                            </md-button>
+                        </md-list-item>
+                    </md-list>
+                </md-content> 
+            </md-sidenav>

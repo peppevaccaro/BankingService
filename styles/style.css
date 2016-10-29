@@ -1,0 +1,143 @@
+img {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+@media only screen and (max-device-width: 400px) {
+    img { 
+        max-width: 60%; 
+    }
+}
+
+.flex {max-width: 100%}
+
+.inputdemoErrors .inputErrorsApp {
+  min-height: 48px; }
+
+.inputdemoErrors md-input-container > p {
+  font-size: 0.8em;
+  text-align: left;
+  width: 100%; }
+.add-button {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+md-tabs.md-dynamic-height md-tabs-content-wrapper,
+md-tab-content.md-no-scroll,
+md-tab-content.md-no-scroll>div,
+.no-scroll {
+    height: 100%;
+    overflow-y: hidden !important;
+}
+
+.scroll {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.tab-content {
+    height: calc(100% - 50px);
+}
+
+.selected {
+    background: #efefef;
+}
+
+#home,#new,#view,#export{
+    text-align: left;
+}
+
+#ricerca {
+  margin-top: 25px;
+  background-color: #fff;
+}
+
+md-content.md-default-theme {
+  background-color: #eee;
+}
+
+md-card {
+  background-color: #fff;
+}
+md-card h2:first-of-type {
+  margin-top: 0;
+}
+
+md-toolbar .md-button.md-default-theme {
+  border-radius: 99%;
+}
+
+h2 {
+  font-weight: 400 bold;
+}
+
+.md-toolbar-tools-bottom {
+  font-size: small;
+}
+.md-toolbar-tools-bottom :last-child {
+  opacity: 0.8;
+}
+
+md-toolbar:not(.md-hue-1),
+.md-fab {
+  fill: #fff;
+}
+
+md-sidenav {
+  fill: #737373;
+}
+md-sidenav ng-md-icon {
+  position: relative;
+  top: 5px;
+}
+
+.user-avatar {
+  border-radius: 99%;
+}
+
+@media only screen 
+  and (max-width: 736px) { 
+  .mobile {
+    display:block;
+  }
+  .desktop {
+    display:none;
+  }
+  .tablet {
+    display:none;
+  }
+
+  h2 {
+  font-weight: 200 bold;
+}
+}
+
+@media only screen 
+  and (min-width: 736px) 
+  and (max-width: 1200px){ 
+  .tablet {
+    display:block;
+  }
+  .desktop {
+    display:none;
+  }
+  .mobile {
+    display:none;
+  }
+}
+
+@media only screen 
+  and (min-width: 1200px) {
+  .desktop {
+    display:block;
+  }
+  .tablet {
+    display:none;
+  }
+  .mobile {
+    display:none;
+  }
+}
+

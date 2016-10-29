@@ -1,0 +1,14 @@
+<md-content class="no-scroll" >
+    <md-tabs md-dynamic-height md-border-bottom class="no-scroll">
+        <md-tab label="Private">
+            <custom-list items="ctrl.items" selected-item="ctrl.selectedItem" filter-function="ctrl.private" selected="ctrl.selected" search="ctrl.q"></custom-list>
+        </md-tab>
+        <md-tab label="Company">
+            <custom-list items="ctrl.items" selected-item="ctrl.selectedItem" filter-function="ctrl.company" selected="ctrl.selected" search="ctrl.q"></custom-list>
+        </md-tab>
+        <md-tab label="All">
+            <custom-list items="ctrl.items" selected-item="ctrl.selectedItem" filter-function="ctrl.all" selected="ctrl.selected" search="ctrl.q" ></custom-list>
+        </md-tab>
+    </md-tabs>
+</md-content>
+
